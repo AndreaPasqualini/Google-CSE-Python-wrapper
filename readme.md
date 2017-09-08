@@ -10,7 +10,9 @@ Information about Google's API can be found at its [GitHub repo](https://github.
 Obviously, the package `google-api-python-client` is a hard dependency of my code.
 
 Please note, I did not specifically aim at computational efficiency when I coded this thing.
-Then, there is space for performance improvement.
+Therefore, there is space for performance improvement.
 
 
 ## Usage
+
+_[Coming soon]_
