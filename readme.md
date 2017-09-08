@@ -9,7 +9,7 @@ If you plan to use this in conjunction with Google's paid plan, then note my pro
 Information about Google's API can be found at its [GitHub repo](https://github.com/google/google-api-python-client), on [developers.google.com](https://developers.google.com/api-client-library/python/) and on [Python's Package Index](https://pypi.python.org/pypi/google-api-python-client/).
 Obviously, the package `google-api-python-client` is a hard dependency of my code.
 
-Please note, I did not specifically aimed at computational efficiency when I coded this thing.
+Please note, I did not specifically aim at computational efficiency when I coded this thing.
 Then, there is space for performance improvement.
 
 
