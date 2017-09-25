@@ -16,6 +16,7 @@ import sqlite3
 import json
 import csv
 from googleapiclient.discovery import build
+from googleapiclient import ConnectionAbortedError
 
 
 def log(message, file="info.log"):
@@ -27,15 +28,12 @@ def log(message, file="info.log"):
     print(string)
 
 
-def load_csv(csv_file, source):
+def load_csv(csv_file, column=0):
     with open(csv_file) as file:
         rows = csv.reader(file)
         strings = []
         for row in rows:
-            if source == 'MA':
-                strings.append(row[1])  # just taking strings in second column
-            elif source == 'patent':
-                strings.append(row[2])  # just taking strings in third column
+            strings.append(row[column])
     return strings[1:]                  # stripping the column header
 
 
@@ -93,9 +91,8 @@ class Scheduler:
 
 
 class Storage:
-    def __init__(self, filename, universe_id):
+    def __init__(self, filename,):
         self._name = filename
-        self._universe_id = universe_id
         self.conn = sqlite3.connect(filename)
         self.curs = self.conn.cursor()
 
@@ -107,12 +104,12 @@ class Storage:
 
     def create_response_table(self):
         self.curs.execute('CREATE TABLE responses'
-                           '(time, id, term, status, response, exception)')
+                          '(time, id, term, status, response, exception)')
         self.save()
 
     def create_urls_table(self):
         self.curs.execute('CREATE TABLE urls'
-                           '(time, id, term, correctedTerm, urls, notes)')
+                          '(time, id, term, correctedTerm, urls, notes)')
         self.save()
 
     def write_response_row(self, row):
