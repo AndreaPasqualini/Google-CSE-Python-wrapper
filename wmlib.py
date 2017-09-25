@@ -16,7 +16,6 @@ import sqlite3
 import json
 import csv
 from googleapiclient.discovery import build
-from googleapiclient import ConnectionAbortedError
 
 
 def log(message, file="info.log"):

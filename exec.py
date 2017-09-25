@@ -5,6 +5,16 @@ import wmlib as wm
 
 
 def main(csv_file, cseID, apiKey):
+    # INPUT CHECKS ============================================================
+    if cseID is None or apiKey is None:
+        raise ValueError('cseID and apiKey must be provided')
+    if not isinstance(cseID, str) or not isinstance(apiKey, str):
+        raise TypeError('cseID and apiKey must be strings')
+    if csv_file is None:
+        raise ValueError('csv_file must be provided')
+    if not isinstance(csv_file, str):
+        raise TypeError('csv_file must be a string pointing to a file')
+
     # CONFIG ==================================================================
     filename = csv_file[:-4]
     daily_job_size = int(1e4)  # dictated by Google
