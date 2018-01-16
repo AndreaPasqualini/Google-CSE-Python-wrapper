@@ -356,3 +356,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/latex,linux,windows,pycharm,sublimetext
+*.xml
+*.iml
